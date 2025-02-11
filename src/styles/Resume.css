@@ -1,0 +1,6 @@
+.resume-container {
+    min-width: 600px;
+    min-height: 800px;
+    background-color:rgb(231, 231, 231);
+    border-radius: 12px;
+}
