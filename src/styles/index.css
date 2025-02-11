@@ -1,0 +1,35 @@
+@font-face {
+  font-family: Nunito;
+  src: url(../assets/fonts/Nunito-Regular.ttf);
+}
+
+@font-face {
+  font-family: Nunito-Bold;
+  src: url(../assets/fonts/Nunito-Bold.ttf);
+}
+
+@font-face {
+  font-family: Nunito-SemiBold;
+  src: url(../assets/fonts/Nunito-SemiBold.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+}
+
+button {
+  font-family: "Nunito-Bold";
+}
