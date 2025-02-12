@@ -1,0 +1,22 @@
+.summary-container {
+    background-color: lightgoldenrodyellow;
+    width: 300px;
+    padding: 12px;
+    border-radius: 12px;
+    user-select: none;
+
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+
+.summary-header h1 {
+    font-family: "Nunito-Bold";
+    font-size: x-large;
+}
