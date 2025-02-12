@@ -1,3 +1,11 @@
+.custom-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+    flex-grow: 1;
+    padding: 2px;
+}
+
 .custom-input input {
     background-color: #eaebe7;
     font-size: 16px;
@@ -13,13 +21,6 @@
     outline: none;
 }
 
-.custom-input {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin-bottom: 12px;
-    flex-grow: 1;
-}
 
 .custom-input label {
     font-family: "Nunito-Bold";
@@ -29,4 +30,15 @@
     margin-left: 8px;
     color: rgb(150, 160, 175);
     font-size: 11px;
+}
+
+.custom-input textarea {
+    background-color: #eaebe7;
+    height: 200px;
+    font-size: 16px;
+    border: 2px solid transparent;
+    padding: 10px;
+    border-radius: 12px;
+    transition: border 0.25s, box-shadow 0.25s;
+    resize: none;
 }

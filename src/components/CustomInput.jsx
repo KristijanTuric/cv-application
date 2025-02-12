@@ -8,7 +8,15 @@ function CustomInput({id, placeholder, type, labelText, value, optional}) {
                 {optional && <span className="optional-text">Optional</span>}
             </label>
 
-            <input type={type} id={id} placeholder={placeholder} value={value} />
+            {type === "textarea" ? (
+                <textarea 
+                    id={id}
+                    placeholder={placeholder}
+                    value={value}
+                />
+            ) : (
+                <input type={type} id={id} placeholder={placeholder} value={value} />
+            )}
         </div>
     );
 }
