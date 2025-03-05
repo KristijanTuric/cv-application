@@ -1,52 +1,54 @@
 import CustomInput from "./CustomInput";
 import "../styles/PersonalDetails.css";
-import { useState, useRef, useEffect } from "react";
+import CollapsibleComponent from "./CollapsibleComponent";
 
-function PersonalDetails() {
-    const [isExpanded, setIsExpanded] = useState(true); // Track if the component is expanded
-    const [height, setHeight] = useState("0px");
-    const contentRef = useRef(null);
+function PersonalDetails({ details, setDetails }) {
 
-    const toggleCollapse = () => {
-        setIsExpanded(prevState => !prevState);
+    const handleChange = (field, value) => {
+        setDetails(prevDetails => ({
+            ...prevDetails,
+            [field]: value
+        }));
     };
 
-    // Update height dynamically when isExpanded changes
-    useEffect(() => {
-        if (isExpanded) {
-            setHeight(`${contentRef.current.scrollHeight}px`); // Get actual height of content
-        } else {
-            setHeight("0px");
-        }
-    }, [isExpanded]);
-
     return (
-        <div className="personal-details">
-            <div onClick={toggleCollapse} className="personal-details-header">
-                <h1>
-                    Personal Details                    
-                </h1>
-                <span style={{fontSize: "12px"}}>
-                        {isExpanded ? "▼" : "▶"}
-                </span>
-            </div>
-           
-            <div 
-                ref={contentRef} 
-                className="collapsible-content"
-                style={{ 
-                    maxHeight: height, 
-                    overflow: "hidden", 
-                    transition: "max-height 0.4s ease-in-out" 
-                }}
-            >
-                <CustomInput placeholder="John Doe" type="text" labelText="Full Name" optional={false}/>
-                <CustomInput placeholder="john@email.com" type="email" labelText="Email" optional={true}/>
-                <CustomInput placeholder="+66 1234 123" type="text" labelText="Phone Number" optional={true}/>
-                <CustomInput placeholder="Berlin, DE" type="text" labelText="Address" optional={true}/>
-            </div>
-            
-        </div>
+        <CollapsibleComponent title="Personal Details">
+            <CustomInput 
+                placeholder="John Doe" 
+                type="text" 
+                labelText="Full Name" 
+                optional={false} 
+                value={details.fullName || ""} 
+                onChange={(e) => handleChange("fullName", e.target.value)} 
+            />
+
+            <CustomInput 
+                placeholder="john@email.com" 
+                type="email" 
+                labelText="Email" 
+                optional={true} 
+                value={details.email || ""} 
+                onChange={(e) => handleChange("email", e.target.value)}
+            />
+
+            <CustomInput 
+                placeholder="+66 1234 123" 
+                type="text" 
+                labelText="Phone Number" 
+                optional={true} 
+                value={details.phone || ""} 
+                onChange={(e) => handleChange("phone", e.target.value)} 
+            />
+
+            <CustomInput 
+                placeholder="Berlin, DE" 
+                type="text" 
+                labelText="Address" 
+                optional={true} 
+                value={details.address || ""} 
+                onChange={(e) => handleChange("address", e.target.value)} 
+            />
+        </CollapsibleComponent>
     );
 }
 
