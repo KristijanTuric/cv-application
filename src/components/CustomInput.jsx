@@ -1,6 +1,6 @@
 import "../styles/CustomInput.css";
 
-function CustomInput({id, placeholder, type, labelText, value, optional}) {
+function CustomInput({id, placeholder, type, labelText, value, optional, onChange}) {
     return (
         <div className="custom-input">
             <label htmlFor="{id}">
@@ -13,9 +13,10 @@ function CustomInput({id, placeholder, type, labelText, value, optional}) {
                     id={id}
                     placeholder={placeholder}
                     value={value}
+                    onChange={onChange}
                 />
             ) : (
-                <input type={type} id={id} placeholder={placeholder} value={value} />
+                <input type={type} id={id} placeholder={placeholder} value={value} onChange={onChange}/>
             )}
         </div>
     );
