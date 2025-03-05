@@ -17,16 +17,18 @@ function App() {
 
   const [personalSummary, setPersonalSummary] = useState("");
   
+  const [educationList, setEducationList] = useState([]);
+
   return (
     <div className='app'>
       <div className='input-components'>
         <PersonalDetails details={personalDetails} setDetails={setPersonalDetails} />
         <Summary summary={personalSummary} setSummary={setPersonalSummary} />
-        <Education  />
+        <Education educationList={educationList} setEducationList={setEducationList} />
         <WorkExperience  />
       </div>
       
-      <Resume personalDetails={personalDetails} summary={personalSummary} />
+      <Resume personalDetails={personalDetails} summary={personalSummary} educationInfo={educationList}/>
     </div>
   );
 }
