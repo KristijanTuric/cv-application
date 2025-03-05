@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import "../styles/CollapsibleComponent.css";
 
 function CollapsibleComponent({title, children}) {
-    const [isExpanded, setIsExpanded] = useState(true); // Track if the component is expanded
+    const [isExpanded, setIsExpanded] = useState(false); // Track if the component is expanded
     const [height, setHeight] = useState("0px");
     const contentRef = useRef(null);
 
