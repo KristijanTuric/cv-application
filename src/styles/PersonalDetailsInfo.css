@@ -11,3 +11,8 @@
     display: flex;
     gap: 12px;
 }
+
+.contact-element {
+    display: flex;
+    gap: 5px;
+}
