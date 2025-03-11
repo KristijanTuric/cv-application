@@ -1,0 +1,13 @@
+.work-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;    
+    margin-bottom: 20px;
+}
+
+.work-responsibilites {
+    grid-column: span 2;
+}
+
+.work-workplace {
+    font-family: Nunit-Bold;
+}

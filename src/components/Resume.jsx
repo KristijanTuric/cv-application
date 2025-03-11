@@ -8,9 +8,9 @@ function Resume({ personalDetails, summary, educationInfo, workExperienceInfo })
     return (
         <div className="resume-container">
             <PersonalDetailsInfo details={personalDetails} />
-            <SummaryInfo summary={summary} />
-            <EducationInfo educationList={educationInfo} />
-            <WorkInfo workExperienceInfo={workExperienceInfo} />
+            <SummaryInfo className="resume-summary" summary={summary} />
+            <EducationInfo className="resume-education" educationList={educationInfo} />
+            <WorkInfo className="resume-work" workExperienceInfo={workExperienceInfo} />
         </div>
     );
 }
