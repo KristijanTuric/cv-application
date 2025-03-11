@@ -7,8 +7,8 @@ function Education({educationList, setEducationList}) {
     const [education, setEducation] = useState({
         institution: "",
         degree: "",
-        startingYear: "",
-        graduatingYear: "",
+        startingYear: null,
+        graduatingYear: null,
     });
 
     const handleInputChange = (e) => {
@@ -54,7 +54,7 @@ function Education({educationList, setEducationList}) {
 
             <CustomInput 
                 placeholder="10/2020" 
-                type="text" 
+                type="date" 
                 labelText="Starting Year" 
                 optional={false}
                 name="startingYear"
@@ -64,7 +64,7 @@ function Education({educationList, setEducationList}) {
 
             <CustomInput 
                 placeholder="6/2023" 
-                type="text" 
+                type="date" 
                 labelText="Graduating Year" 
                 optional={true}
                 name="graduatingYear"

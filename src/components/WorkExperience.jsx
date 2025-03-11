@@ -7,8 +7,8 @@ function WorkExperience({experienceList, setExperienceList}) {
     const [experience, setExperience] = useState({
         position: "",
         workplace: "",
-        startingYear: "",
-        endYear: "",
+        startingYear: null,
+        endYear: null,
         jobResponsabilities: "",
     });
 
@@ -55,7 +55,7 @@ function WorkExperience({experienceList, setExperienceList}) {
 
             <CustomInput 
                 placeholder="11/2022" 
-                type="text" 
+                type="date" 
                 labelText="Starting Year" 
                 optional={false}
                 name="startingYear"
@@ -65,7 +65,7 @@ function WorkExperience({experienceList, setExperienceList}) {
 
             <CustomInput 
                 placeholder="3/2023" 
-                type="text" 
+                type="date" 
                 labelText="End Year" 
                 optional={true}
                 name="endYear"
