@@ -19,16 +19,18 @@ function App() {
   
   const [educationList, setEducationList] = useState([]);
 
+  const [experienceList, setExperienceList] = useState([]);
+
   return (
     <div className='app'>
       <div className='input-components'>
         <PersonalDetails details={personalDetails} setDetails={setPersonalDetails} />
         <Summary summary={personalSummary} setSummary={setPersonalSummary} />
         <Education educationList={educationList} setEducationList={setEducationList} />
-        <WorkExperience  />
+        <WorkExperience experienceList={experienceList} setExperienceList={setExperienceList}  />
       </div>
       
-      <Resume personalDetails={personalDetails} summary={personalSummary} educationInfo={educationList}/>
+      <Resume personalDetails={personalDetails} summary={personalSummary} educationInfo={educationList} workExperienceInfo={experienceList} />
     </div>
   );
 }
