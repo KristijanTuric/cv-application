@@ -7,7 +7,7 @@
 }
 
 .custom-input input {
-    background-color: #eaebe7;
+    background-color: #f3f4f6;
     font-size: 16px;
     border: 2px solid transparent;
     padding: 10px;
@@ -16,7 +16,7 @@
 }
 
 .custom-input input:focus {
-    border-color: #e6af2e;
+    border-color: #2cc7db;
     box-shadow: 0px 3px 15px rgba(60, 130, 250, 0.2);
     outline: none;
 }
@@ -33,7 +33,7 @@
 }
 
 .custom-input textarea {
-    background-color: #eaebe7;
+    background-color: #f3f4f6;
     height: 200px;
     font-size: 16px;
     border: 2px solid transparent;
