@@ -17,7 +17,7 @@ function CustomInput({id, placeholder, type, labelText, value, optional, onChang
                     name={name}
                 />
             ) : (
-                <input type={type} id={id} placeholder={placeholder} value={value} onChange={onChange} name={name}/>
+                <input type={type} id={id} placeholder={placeholder} value={value} onChange={onChange} name={name} autoComplete="off"/>
             )}
         </div>
     );
