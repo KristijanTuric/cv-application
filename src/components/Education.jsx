@@ -1,6 +1,7 @@
 import CollapsibleComponent from "./CollapsibleComponent";
 import CustomInput from "./CustomInput";
 import { useState } from 'react';
+import "../styles/Education.css";
 
 function Education({educationList, setEducationList}) {
 
@@ -11,6 +12,8 @@ function Education({educationList, setEducationList}) {
         graduatingYear: null,
     });
 
+    const [editIndex, setEditIndex] = useState(null);
+
     const handleInputChange = (e) => {
         const {name, value} = e.target;
         setEducation((prev) => ({
@@ -20,15 +23,33 @@ function Education({educationList, setEducationList}) {
     };
 
     const addEducation = () => {
-        const newEducation = { ...education }; 
+        if (editIndex !== null) {
+            const updatedList = [...educationList];
+            updatedList[editIndex] = {...education};
+            setEducationList(updatedList);
+            setEditIndex(null);
+        } else {
+            const newEducation = { ...education }; 
 
-        if (newEducation.graduatingYear === "") {
-            newEducation.graduatingYear = "present";
+            if (newEducation.graduatingYear === "") {
+                newEducation.graduatingYear = "present";
+            }
+    
+            setEducationList([...educationList, newEducation]);
         }
-
-        setEducationList([...educationList, newEducation]);
+        
         setEducation({ institution: "", degree: "", startingYear: "", graduatingYear: "" });
     };
+
+    const removeEducation = (index) => {
+        setEducationList((prevList) => prevList.filter((_, i) => i !== index));
+    };
+
+    const editEducation = (index) => {
+        const educationToEdit = educationList[index];
+        setEducation(educationToEdit);
+        setEditIndex(index);
+    }
 
     return (
         <CollapsibleComponent title="Education">
@@ -72,7 +93,29 @@ function Education({educationList, setEducationList}) {
                 onChange={handleInputChange}
             />
 
-            <button onClick={addEducation}>Submit</button>
+            <div className="submit-button">
+                <button onClick={addEducation}>
+                    {editIndex !== null ? "Update" : "Submit"}
+                </button>
+            </div>
+
+            <div className="education-list">
+                <ul>
+                    {educationList.map((edu, index) => (
+                    <li key={index} className="education-item">
+                        <div>                                                                    
+                            <div>{edu.institution}</div>
+                            <div>{edu.degree}</div>
+                        </div>
+
+                        <div className="education-buttons">
+                            <button onClick={() => editEducation(index)} className="edit-button">Edit</button>
+                            <button onClick={() => removeEducation(index)} className="remove-button" disabled={editIndex !== null}>Remove</button>
+                        </div>                        
+                    </li>
+                    ))}
+                </ul>
+            </div>
         </CollapsibleComponent>
     )
 }

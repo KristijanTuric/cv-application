@@ -1,0 +1,57 @@
+.education-list {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+li {
+    list-style: none;
+}
+
+.education-item {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 5px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Button styles */
+
+.submit-button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.education-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.edit-button {
+    background-color: #28A745;
+}
+
+.edit-button:hover {
+    background-color: #237c38;
+}
+
+.remove-button {
+    background-color: #DC3545;
+}
+
+.remove-button:hover {
+    background-color: #9b232f;
+}
+
+.remove-button:disabled {
+    background-color: darkgray;
+    cursor: default;
+
+}
+
+.remove-button:active:disabled {
+    transform: none;
+}
