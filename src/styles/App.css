@@ -19,6 +19,8 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+/* Custom shrinking button */
+
 button {
     padding: 10px 16px;
     background-color: #007bff;
@@ -26,7 +28,7 @@ button {
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    transition: transform 0.1s ease-in-out, background 0.2s;
+    transition: transform 0.02s ease-in-out, background 0.2s;
 }
 
 button:hover {
