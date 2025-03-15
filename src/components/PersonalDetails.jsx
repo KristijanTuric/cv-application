@@ -1,6 +1,7 @@
 import CustomInput from "./CustomInput";
 import "../styles/PersonalDetails.css";
 import CollapsibleComponent from "./CollapsibleComponent";
+import { mdiAccount } from "@mdi/js";
 
 function PersonalDetails({ details, setDetails }) {
 
@@ -12,7 +13,7 @@ function PersonalDetails({ details, setDetails }) {
     };
 
     return (
-        <CollapsibleComponent title="Personal Details">
+        <CollapsibleComponent title="Personal Details" icon={mdiAccount}>
             <CustomInput 
                 placeholder="John Doe" 
                 type="text" 

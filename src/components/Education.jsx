@@ -2,6 +2,7 @@ import CollapsibleComponent from "./CollapsibleComponent";
 import CustomInput from "./CustomInput";
 import { useState } from 'react';
 import "../styles/Education.css";
+import { mdiSchool } from "@mdi/js";
 
 function Education({educationList, setEducationList}) {
 
@@ -52,7 +53,7 @@ function Education({educationList, setEducationList}) {
     }
 
     return (
-        <CollapsibleComponent title="Education">
+        <CollapsibleComponent title="Education" icon={mdiSchool}>
             <CustomInput 
                 placeholder="University of Berlin" 
                 type="text" 

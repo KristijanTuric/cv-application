@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import "../styles/CollapsibleComponent.css";
+import Icon from "@mdi/react";
 
-function CollapsibleComponent({title, children}) {
+function CollapsibleComponent({title, children, icon}) {
     const [isExpanded, setIsExpanded] = useState(false); // Track if the component is expanded
     const [height, setHeight] = useState("0px");
     const contentRef = useRef(null);
@@ -20,6 +21,7 @@ function CollapsibleComponent({title, children}) {
     return (
         <div className="collapsible-component">
             <div onClick={toggleCollapse} className="collapsible-header">
+                <Icon path={icon} size={2} />
                 <h1>{title}</h1>
                 <span style={{fontSize: "12px"}}>
                         {isExpanded ? "▼" : "▶"}

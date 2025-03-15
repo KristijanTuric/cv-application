@@ -2,6 +2,7 @@ import { useState } from "react";
 import CollapsibleComponent from "./CollapsibleComponent";
 import CustomInput from "./CustomInput";
 import "../styles/Education.css";
+import { mdiBriefcase } from "@mdi/js";
 
 function WorkExperience({experienceList, setExperienceList}) {
 
@@ -53,7 +54,7 @@ function WorkExperience({experienceList, setExperienceList}) {
     }
 
     return (
-        <CollapsibleComponent title="Work Experience">
+        <CollapsibleComponent title="Work Experience" icon={mdiBriefcase}>
             <CustomInput 
                 placeholder="Web Developer" 
                 type="text" 

@@ -1,10 +1,11 @@
 import CustomInput from "./CustomInput";
 import "../styles/Summary.css";
 import CollapsibleComponent from "./CollapsibleComponent";
+import { mdiTypewriter } from "@mdi/js";
 
 function Summary({summary, setSummary}) {
     return (
-        <CollapsibleComponent title="Summary">
+        <CollapsibleComponent title="Summary" icon={mdiTypewriter}>
             <CustomInput 
                 placeholder="Short info about you..." 
                 type="textarea" 
