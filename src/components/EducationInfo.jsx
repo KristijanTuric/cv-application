@@ -8,7 +8,7 @@ function EducationInfo({educationList, className}) {
     return (
         <div className={className}>
             <h1>Education</h1>
-            <ul>
+            <ul className="education-list">
                 {educationList.map((edu, index) => (
                     <li key={index}>
                         <div className="education-container">

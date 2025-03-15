@@ -8,7 +8,7 @@ function WorkInfo({workExperienceInfo, className}) {
     return (
         <div className={className}>
             <h1>Work Experience</h1>
-            <ul>
+            <ul className="work-list">
                 {workExperienceInfo.map((work, index) => (
                     <li key={index}>
 
@@ -24,8 +24,16 @@ function WorkInfo({workExperienceInfo, className}) {
                             </div>
 
                             <div className="work-responsibilites">
-                                Job Responsibilities <br></br>
-                                {work.jobResponsabilities}
+                                {work.jobResponsabilities.length === 0 ? ( null ) : (
+                                    <>
+                                        <div>Job Responsabilities</div>
+                                        <ul>
+                                        {work.jobResponsabilities.map((responsibility, index) => (
+                                            <li key={index}>{responsibility}</li>
+                                        ))}
+                                        </ul>
+                                    </>
+                                )}
                             </div>
                         </div>
                     </li>

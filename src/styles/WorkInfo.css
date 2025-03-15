@@ -11,3 +11,21 @@
 .work-workplace {
     font-family: Nunito-Bold;
 }
+
+.work-responsibilites {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.work-responsibilites ul {
+    padding-left: 20px;
+}
+
+.work-responsibilites li {
+    margin-bottom: 5px;
+}
+
+.work-list {
+    list-style: none;
+}

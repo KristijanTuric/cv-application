@@ -6,12 +6,14 @@ import { mdiBriefcase } from "@mdi/js";
 
 function WorkExperience({experienceList, setExperienceList}) {
 
+    const [jobResponsability, setJobResponsability] = useState("");
+
     const [experience, setExperience] = useState({
         position: "",
         workplace: "",
         startingYear: null,
         endYear: null,
-        jobResponsabilities: "",
+        jobResponsabilities: [],
     });
 
     const [editIndex, setEditIndex] = useState(null);
@@ -33,14 +35,15 @@ function WorkExperience({experienceList, setExperienceList}) {
         } else {
             const newExperience = { ...experience }; 
 
-            if (newExperience.endYear === "") {
+            if (newExperience.endYear === null) {
                 newExperience.endYear = "present";
             }
 
             setExperienceList([...experienceList, newExperience]);
         }
         
-        setExperience({ position: "", workplace: "", startingYear: "", endYear: "", jobResponsabilities: "" });
+        setExperience({ position: "", workplace: "", startingYear: null, endYear: null, jobResponsabilities: []});
+        setJobResponsability("");
     };
 
     const removeWorkExperience = (index) => {
@@ -52,6 +55,23 @@ function WorkExperience({experienceList, setExperienceList}) {
         setExperience(experienceToEdit);
         setEditIndex(index);
     }
+
+    const addJobResponsability = () => {
+        if (jobResponsability.trim() !== "") {
+            setExperience((prev) => ({
+                ...prev,
+                jobResponsabilities: [...prev.jobResponsabilities, jobResponsability],
+            }));
+            setJobResponsability("");
+        }
+    };
+
+    const removeJobResponsibility = (index) => {
+        setExperience((prev) => ({
+            ...prev,
+            jobResponsabilities: prev.jobResponsabilities.filter((_, i) => i !== index),
+        }));
+    };
 
     return (
         <CollapsibleComponent title="Work Experience" icon={mdiBriefcase}>
@@ -96,14 +116,29 @@ function WorkExperience({experienceList, setExperienceList}) {
             />
 
             <CustomInput 
-                placeholder="TODO" 
+                placeholder="Developed React applications" 
                 type="text" 
                 labelText="Job Responsabilites" 
                 optional={true}
-                name="jobResponsabilities"
-                value={experience.jobResponsabilities}
-                onChange={handleInputChange}
+                name="jobResponsabilitiy"
+                value={jobResponsability}
+                onChange={(e) => setJobResponsability(e.target.value)}
             />
+
+            <div onClick={addJobResponsability} className="add-button">
+                <button>Add Responsability +</button>
+            </div>
+
+            <ul className="responsibilities-list">
+                {experience.jobResponsabilities.map((resp, index) => (
+                    <li key={index} className="responsibility-item">
+                        {resp}
+                        <button onClick={() => removeJobResponsibility(index)} className="remove-responsibility-button">
+                            ❌
+                        </button>
+                    </li>
+                ))}
+            </ul>
 
             <div className="submit-button">
                 <button onClick={addExperience}>

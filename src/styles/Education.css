@@ -3,10 +3,6 @@
     margin-bottom: 5px;
 }
 
-li {
-    list-style: none;
-}
-
 .education-item {
     border: 1px solid black;
     border-radius: 10px;
@@ -54,4 +50,25 @@ li {
 
 .remove-button:active:disabled {
     transform: none;
+}
+
+/* Job Responsibilites */
+.responsibilities-list {
+    display: flex;
+    gap: 10px;
+
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.remove-responsibility-button {
+    background-color: transparent;
+    padding: 5px;
+    border-radius: 20px;
+    margin-left: 5px;
+}
+
+.remove-responsibility-button:hover {
+    background-color: rgb(209, 209, 209);
 }
