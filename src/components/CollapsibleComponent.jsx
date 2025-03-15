@@ -15,7 +15,7 @@ function CollapsibleComponent({title, children}) {
         if (contentRef.current) {
             setHeight(isExpanded ? `${contentRef.current.scrollHeight}px` : "0px");
         }
-    }, [isExpanded]);
+    }, [isExpanded, children]);
 
     return (
         <div className="collapsible-component">
