@@ -1,5 +1,5 @@
 .collapsible-component {
-    width: 30vw;
+    width: 28vw;
     min-width: 200px;
 }
 
@@ -7,9 +7,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 12px;
     cursor: pointer;
     user-select: none;
+    padding-left: 80px;
+    padding-right: 80px;
 }
 
 .collapsible-header h1 {
