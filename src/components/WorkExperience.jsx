@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CollapsibleComponent from "./CollapsibleComponent";
 import CustomInput from "./CustomInput";
+import "../styles/Education.css";
 
 function WorkExperience({experienceList, setExperienceList}) {
 
@@ -12,6 +13,8 @@ function WorkExperience({experienceList, setExperienceList}) {
         jobResponsabilities: "",
     });
 
+    const [editIndex, setEditIndex] = useState(null);
+
     const handleInputChange = (e) => {
         const {name, value} = e.target;
         setExperience((prev) => ({
@@ -21,15 +24,33 @@ function WorkExperience({experienceList, setExperienceList}) {
     };
 
     const addExperience = () => {
-        const newExperience = { ...experience }; 
+        if (editIndex !== null) {
+            const updatedList = [...experienceList];
+            updatedList[editIndex] = {...experience};
+            setExperienceList(updatedList);
+            setEditIndex(null);
+        } else {
+            const newExperience = { ...experience }; 
 
-        if (newExperience.endYear === "") {
-            newExperience.endYear = "present";
+            if (newExperience.endYear === "") {
+                newExperience.endYear = "present";
+            }
+
+            setExperienceList([...experienceList, newExperience]);
         }
-
-        setExperienceList([...experienceList, newExperience]);
+        
         setExperience({ position: "", workplace: "", startingYear: "", endYear: "", jobResponsabilities: "" });
     };
+
+    const removeWorkExperience = (index) => {
+        setExperienceList((prevList) => prevList.filter((_, i) => i !== index));
+    };
+
+    const editWorkExperience = (index) => {
+        const experienceToEdit = experienceList[index];
+        setExperience(experienceToEdit);
+        setEditIndex(index);
+    }
 
     return (
         <CollapsibleComponent title="Work Experience">
@@ -83,7 +104,29 @@ function WorkExperience({experienceList, setExperienceList}) {
                 onChange={handleInputChange}
             />
 
-            <button onClick={addExperience}>Submit</button>
+            <div className="submit-button">
+                <button onClick={addExperience}>
+                    {editIndex !== null ? "Update" : "Submit"}
+                </button>
+            </div>
+
+            <div className="education-list">
+                <ul>
+                    {experienceList.map((exp, index) => (
+                    <li key={index} className="education-item">
+                        <div>                                                                    
+                            <div>{exp.workplace}</div>
+                            <div>{exp.position}</div>
+                        </div>
+
+                        <div className="education-buttons">
+                            <button onClick={() => editWorkExperience(index)} className="edit-button">Edit</button>
+                            <button onClick={() => removeWorkExperience(index)} className="remove-button" disabled={editIndex !== null}>Remove</button>
+                        </div>                        
+                    </li>
+                    ))}
+                </ul>
+            </div>
 
         </CollapsibleComponent>
     );
