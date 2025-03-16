@@ -26,7 +26,7 @@ function WorkInfo({workExperienceInfo, className}) {
                             <div className="work-responsibilites">
                                 {work.jobResponsabilities.length === 0 ? ( null ) : (
                                     <>
-                                        <div>Job Responsabilities</div>
+                                        <div>Job Responsibilities</div>
                                         <ul>
                                         {work.jobResponsabilities.map((responsibility, index) => (
                                             <li key={index}>{responsibility}</li>
