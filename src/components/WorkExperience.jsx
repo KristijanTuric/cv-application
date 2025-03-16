@@ -11,8 +11,8 @@ function WorkExperience({experienceList, setExperienceList}) {
     const [experience, setExperience] = useState({
         position: "",
         workplace: "",
-        startingYear: null,
-        endYear: null,
+        startingYear: "",
+        endYear: "",
         jobResponsabilities: [],
     });
 
@@ -34,15 +34,10 @@ function WorkExperience({experienceList, setExperienceList}) {
             setEditIndex(null);
         } else {
             const newExperience = { ...experience }; 
-
-            if (newExperience.endYear === null) {
-                newExperience.endYear = "present";
-            }
-
             setExperienceList([...experienceList, newExperience]);
         }
         
-        setExperience({ position: "", workplace: "", startingYear: null, endYear: null, jobResponsabilities: []});
+        setExperience({ position: "", workplace: "", startingYear: "", endYear: "", jobResponsabilities: []});
         setJobResponsability("");
     };
 
@@ -95,8 +90,7 @@ function WorkExperience({experienceList, setExperienceList}) {
                 onChange={handleInputChange}
             />
 
-            <CustomInput 
-                placeholder="11/2022" 
+            <CustomInput
                 type="date" 
                 labelText="Starting Year" 
                 optional={false}
@@ -106,7 +100,6 @@ function WorkExperience({experienceList, setExperienceList}) {
             />
 
             <CustomInput 
-                placeholder="3/2023" 
                 type="date" 
                 labelText="End Year" 
                 optional={true}

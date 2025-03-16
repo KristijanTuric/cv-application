@@ -9,8 +9,8 @@ function Education({educationList, setEducationList}) {
     const [education, setEducation] = useState({
         institution: "",
         degree: "",
-        startingYear: null,
-        graduatingYear: null,
+        startingYear: "",
+        graduatingYear: "",
     });
 
     const [editIndex, setEditIndex] = useState(null);
@@ -31,11 +31,6 @@ function Education({educationList, setEducationList}) {
             setEditIndex(null);
         } else {
             const newEducation = { ...education }; 
-
-            if (newEducation.graduatingYear === "") {
-                newEducation.graduatingYear = "present";
-            }
-    
             setEducationList([...educationList, newEducation]);
         }
         
@@ -74,8 +69,7 @@ function Education({educationList, setEducationList}) {
                 onChange={handleInputChange}
             />
 
-            <CustomInput 
-                placeholder="10/2020" 
+            <CustomInput
                 type="date" 
                 labelText="Starting Year" 
                 optional={false}
@@ -84,8 +78,7 @@ function Education({educationList, setEducationList}) {
                 onChange={handleInputChange}
             />
 
-            <CustomInput 
-                placeholder="6/2023" 
+            <CustomInput
                 type="date" 
                 labelText="Graduating Year" 
                 optional={true}
