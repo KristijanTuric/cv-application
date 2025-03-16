@@ -27,6 +27,31 @@ function WorkExperience({experienceList, setExperienceList}) {
     };
 
     const addExperience = () => {
+
+         // Input validation
+         const today = new Date();
+         const selectedDate = new Date(experience.startingYear);
+ 
+         if (!experience.workplace.trim()) {
+             alert("Workplace field cannot be empty!");
+             return;
+         }
+ 
+         if (!experience.position.trim()) {
+             alert("Position field cannot be empty!");
+             return;
+         }
+ 
+         if (!experience.startingYear) {
+             alert("Starting year field cannot be empty!");
+             return;
+         }
+ 
+         if (selectedDate > today) {
+             alert("Selected date cannot be in the future!");
+             return;
+         }
+
         if (editIndex !== null) {
             const updatedList = [...experienceList];
             updatedList[editIndex] = {...experience};

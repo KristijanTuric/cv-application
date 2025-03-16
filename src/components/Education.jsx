@@ -24,6 +24,31 @@ function Education({educationList, setEducationList}) {
     };
 
     const addEducation = () => {
+
+        // Input validation
+        const today = new Date();
+        const selectedDate = new Date(education.startingYear);
+
+        if (!education.institution.trim()) {
+            alert("Institution field cannot be empty!");
+            return;
+        }
+
+        if (!education.degree.trim()) {
+            alert("Degree field cannot be empty!");
+            return;
+        }
+
+        if (!education.startingYear) {
+            alert("Starting year field cannot be empty!");
+            return;
+        }
+
+        if (selectedDate > today) {
+            alert("Selected date cannot be in the future!");
+            return;
+        }
+
         if (editIndex !== null) {
             const updatedList = [...educationList];
             updatedList[editIndex] = {...education};
