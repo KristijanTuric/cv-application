@@ -62,6 +62,10 @@
     margin-bottom: 10px;
 }
 
+.responsibility-item {
+    list-style: none;
+}
+
 .remove-responsibility-button {
     background-color: transparent;
     padding: 5px;
