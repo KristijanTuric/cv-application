@@ -6,6 +6,7 @@ import Education from './components/Education';
 import WorkExperience from './components/WorkExperience';
 import CvActions from './components/CvActions';
 import { useState } from 'react';
+import Skills from './components/Skills';
 
 function App() {
 
@@ -22,19 +23,22 @@ function App() {
 
   const [experienceList, setExperienceList] = useState([]);
 
+  const [skillList, setSkillList] = useState([]);
+
   return (
     <div className='app'>
       <div>
-        <CvActions setPersonalDetails={setPersonalDetails} setSummary={setPersonalSummary} setEducationList={setEducationList} setExperienceList={setExperienceList} />
+        <CvActions setPersonalDetails={setPersonalDetails} setSummary={setPersonalSummary} setEducationList={setEducationList} setExperienceList={setExperienceList} setSkills={setSkillList} />
         <div className='input-components'>
           <PersonalDetails details={personalDetails} setDetails={setPersonalDetails} />
           <Summary summary={personalSummary} setSummary={setPersonalSummary} />
           <Education educationList={educationList} setEducationList={setEducationList} />
           <WorkExperience experienceList={experienceList} setExperienceList={setExperienceList}  />
+          <Skills skillList={skillList} setSkillList={setSkillList} />
         </div>
       </div>
       
-      <Resume personalDetails={personalDetails} summary={personalSummary} educationInfo={educationList} workExperienceInfo={experienceList} />
+      <Resume personalDetails={personalDetails} summary={personalSummary} educationInfo={educationList} workExperienceInfo={experienceList} skillInfo={skillList}/>
     </div>
   );
 }

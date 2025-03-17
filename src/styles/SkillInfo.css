@@ -1,0 +1,16 @@
+.skill-container h1 {
+    text-align: center;
+    background-color: lightcyan;
+    font-size: 1.8em;
+    font-family: Nunito-Bold;
+    margin-bottom: 10px;
+}
+
+.skill-container ul {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap if necessary */
+    gap: 10px; /* Adds space between items */
+    padding-left: 5px;
+    list-style-type: circle;
+    list-style-position: inside;
+}
