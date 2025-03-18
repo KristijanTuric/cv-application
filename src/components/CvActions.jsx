@@ -21,6 +21,7 @@ function CvActions({setPersonalDetails, setEducationList, setExperienceList, set
         setEducationList([]);
         setExperienceList([]);
         setSummary("");
+        setSkills([]);
     }
 
     return (
